@@ -6,16 +6,54 @@
 (function () {
   "use strict";
 
-  const data = TOURNAMENT_DATA;
+  var data = TOURNAMENT_DATA;
+  var REFRESH_INTERVAL = 60000; // Check for new data every 60 seconds
 
   // ---- Initialize ----
   document.addEventListener("DOMContentLoaded", function () {
+    renderAll();
+    initMobileMenu();
+    startAutoRefresh();
+  });
+
+  function renderAll() {
     renderPlayerMatches();
     renderTeamOverview();
     renderTeamMatches();
     renderLastUpdated();
-    initMobileMenu();
-  });
+  }
+
+  // ---- Auto-refresh: fetch data.json periodically ----
+  function startAutoRefresh() {
+    setInterval(function () {
+      fetchLatestData();
+    }, REFRESH_INTERVAL);
+  }
+
+  function fetchLatestData() {
+    // Fetch data.json with a cache-busting query param
+    var url = "data.json?_t=" + Date.now();
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        try {
+          var newData = JSON.parse(xhr.responseText);
+          // Only re-render if data actually changed
+          if (newData.tournament && newData.tournament.lastUpdated !== data.tournament.lastUpdated) {
+            data = newData;
+            renderAll();
+          }
+        } catch (e) {
+          // JSON parse failed — ignore, will retry next interval
+        }
+      }
+    };
+    xhr.onerror = function () {
+      // Network error — ignore, will retry next interval
+    };
+    xhr.send();
+  }
 
   // ---- Mobile menu toggle ----
   function initMobileMenu() {
@@ -186,11 +224,11 @@
     var statusLabel = "";
 
     if (tm.status === "completed" && tm.washuScore !== null) {
-      scoreDisplay = tm.washuScore + " – " + tm.opponentScore;
+      scoreDisplay = tm.washuScore + " \u2013 " + tm.opponentScore;
       scoreClass = tm.washuScore > tm.opponentScore ? "win" : "loss";
       statusLabel = tm.washuScore > tm.opponentScore ? "Win" : "Loss";
     } else if (tm.status === "live") {
-      scoreDisplay = (tm.washuScore || 0) + " – " + (tm.opponentScore || 0);
+      scoreDisplay = (tm.washuScore || 0) + " \u2013 " + (tm.opponentScore || 0);
       statusLabel = "Live";
     } else {
       scoreDisplay = "vs";
@@ -227,7 +265,7 @@
         if (ind.result && ind.result !== "upcoming") {
           html += '<span class="ind-result ' + ind.result + '">' + ind.result + '</span>';
         } else {
-          html += '<span class="ind-result upcoming">–</span>';
+          html += '<span class="ind-result upcoming">\u2013</span>';
         }
         html += '<span class="ind-opp-player">' + escHtml(ind.opponent || "TBD") + (ind.oppSchool ? ' (' + escHtml(ind.oppSchool) + ')' : '') + '</span>';
         html += '<span class="ind-score">' + escHtml(ind.games || "") + '</span>';
@@ -266,7 +304,7 @@
       minute: "2-digit",
       timeZoneName: "short"
     };
-    el.textContent = "Last updated: " + d.toLocaleDateString("en-US", options);
+    el.textContent = "Last updated: " + d.toLocaleDateString("en-US", options) + " (auto-refreshes every 60s)";
   }
 
   // ---- Utility ----

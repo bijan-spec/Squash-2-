@@ -1,0 +1,76 @@
+{
+  "tournament": {
+    "name": "CSA National Collegiate Club Team Championships",
+    "year": 2026,
+    "dates": "February 13–15, 2026",
+    "venue": "Arlen Specter US Squash Center",
+    "city": "Philadelphia, PA",
+    "lastUpdated": "2026-02-13T08:00:00-05:00"
+  },
+  "team": {
+    "name": "Washington University in St. Louis",
+    "shortName": "WashU",
+    "mascot": "Bears",
+    "division": "TBD",
+    "seed": "TBD"
+  },
+  "featuredPlayer": "James Sabet",
+  "teamMatches": [
+    {
+      "id": 1,
+      "round": "Day 1 – Round 1",
+      "date": "Friday, Feb 13",
+      "time": "TBD",
+      "opponent": "TBD",
+      "washuScore": null,
+      "opponentScore": null,
+      "status": "upcoming",
+      "individuals": []
+    },
+    {
+      "id": 2,
+      "round": "Day 1 – Round 2",
+      "date": "Friday, Feb 13",
+      "time": "TBD",
+      "opponent": "TBD",
+      "washuScore": null,
+      "opponentScore": null,
+      "status": "upcoming",
+      "individuals": []
+    },
+    {
+      "id": 3,
+      "round": "Day 2 – Round 3",
+      "date": "Saturday, Feb 14",
+      "time": "TBD",
+      "opponent": "TBD",
+      "washuScore": null,
+      "opponentScore": null,
+      "status": "upcoming",
+      "individuals": []
+    },
+    {
+      "id": 4,
+      "round": "Day 2 – Round 4",
+      "date": "Saturday, Feb 14",
+      "time": "TBD",
+      "opponent": "TBD",
+      "washuScore": null,
+      "opponentScore": null,
+      "status": "upcoming",
+      "individuals": []
+    },
+    {
+      "id": 5,
+      "round": "Day 3 – Round 5",
+      "date": "Sunday, Feb 15",
+      "time": "TBD",
+      "opponent": "TBD",
+      "washuScore": null,
+      "opponentScore": null,
+      "status": "upcoming",
+      "individuals": []
+    }
+  ],
+  "playerMatches": []
+}
