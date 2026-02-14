@@ -1,0 +1,16 @@
+{
+  "name": "WashU Squash - CSA Club Nationals 2026",
+  "short_name": "WashU Squash",
+  "description": "Live scores and match tracking for WashU Squash at the CSA Club Nationals 2026",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f8f8",
+  "theme_color": "#a51417",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23a51417' width='100' height='100' rx='20'/><text x='50' y='68' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif' font-weight='bold'>WU</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
