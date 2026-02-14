@@ -22,7 +22,7 @@ const DEBUG = process.argv.includes("--debug");
 
 // ── Config ──────────────────────────────────────────────────────────
 const CONFIG = {
-  tournamentId: 16001,
+  tournamentId: 18567,
   tournamentDates: ["2026-02-13", "2026-02-14", "2026-02-15"],
   teamSearchTerms: [
     "washington university",

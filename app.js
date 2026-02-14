@@ -126,7 +126,7 @@
         '<h4>Match Results</h4>' +
         '<div class="no-matches-msg">' +
         'Match draws and lineups will appear here once announced. ' +
-        'Check <a href="https://clublocker.com/tournaments/16001" target="_blank" rel="noopener">Club Locker</a> ' +
+        'Check <a href="https://clublocker.com/tournaments/18567/draws?divisionId=302&sectionId=38&viewMode=detailed&offset=0" target="_blank" rel="noopener">Club Locker</a> ' +
         'for the latest draws and live scores.' +
         '</div>';
       return;
