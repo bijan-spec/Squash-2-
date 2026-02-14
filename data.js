@@ -26,6 +26,7 @@ const TOURNAMENT_DATA = {
 
   // --- Featured player ---
   featuredPlayer: "James Sabet",
+  featuredPlayerMatchUrl: "https://clublocker.com/leagues/match/246405",
 
   // =============================================
   // TEAM MATCHES

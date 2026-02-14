@@ -318,6 +318,47 @@ body {
   font-weight: 500;
 }
 
+.player-live-match {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.live-match-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--washu-red);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.live-match-link:hover {
+  background: var(--washu-red-dark);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.live-match-pulse {
+  width: 10px;
+  height: 10px;
+  background: #4ade80;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+.live-match-text {
+  flex: 1;
+}
+
+.live-match-arrow {
+  font-size: 1.1rem;
+}
+
 .player-matches {
   padding: 24px 32px;
 }
@@ -828,6 +869,10 @@ body {
   }
 
   .player-matches {
+    padding: 16px 20px;
+  }
+
+  .player-live-match {
     padding: 16px 20px;
   }
 

@@ -17,6 +17,7 @@
   });
 
   function renderAll() {
+    renderPlayerLiveMatch();
     renderPlayerMatches();
     renderTeamOverview();
     renderTeamMatches();
@@ -71,6 +72,23 @@
       links[i].addEventListener("click", function () {
         menu.classList.remove("open");
       });
+    }
+  }
+
+  // ---- Render live match link ----
+  function renderPlayerLiveMatch() {
+    var container = document.getElementById("playerLiveMatch");
+    if (!container) return;
+
+    if (data.featuredPlayerMatchUrl) {
+      container.innerHTML =
+        '<a href="' + escHtml(data.featuredPlayerMatchUrl) + '" target="_blank" rel="noopener" class="live-match-link">' +
+        '<span class="live-match-pulse"></span>' +
+        '<span class="live-match-text">View Live Scores on Club Locker</span>' +
+        '<span class="live-match-arrow">&rarr;</span>' +
+        '</a>';
+    } else {
+      container.innerHTML = '';
     }
   }
 
